@@ -1,0 +1,132 @@
+{% extends 'app/base.html' %}
+<!-- {% load static %} -->
+{% block title %}FANATICS SHOP{% endblock %}
+
+{% block header%}
+    <header>
+        <nav class="nav">
+            <button  id="show" class="btn-rgt"> REGISTRATE AHORA</button>
+            <ul class="nav-menu">
+                <li><a id="show" href="#">Iniciar sesion</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">Idioma</a></li>
+                <li><a href="#">USD</a></li>
+                <li><a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a></li>
+            </ul>
+
+            <div class="div-search">
+                <div class="div-logo">
+                    <img  src="{% static 'app/img/logoSponsors.png' %}" alt="">
+                </div>
+                <input type="search" class="search" name="" placeholder="Buscar">
+                <button class="btn-search" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <nav class="nav-sub">
+                <ul class="ul-sub">
+                    <li><a href="#">Tendencias</a></li>
+                    <li><a href="#">Premier League</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Manchester City</a>
+                                <img src="" alt="">
+                            </li>
+                            <li><a href="#">Liverpool</a></li>
+                            <li><a href="#">Chelsea</a></li>
+                            <li><a href="#">Arsenal</a></li>
+                            <li><a href="#">Manchester United</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">La Liga</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Real Madrid</a></li>
+                            <li><a href="#">Sevilla</a></li>
+                            <li><a href="#">Barcelona</a></li>
+                            <li><a href="#">Atletico Madrid</a></li>
+                            <li><a href="#">Betis</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Serie A</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Milan</a></li>
+                            <li><a href="#">Napoli</a></li>
+                            <li><a href="#">Inter</a></li>
+                            <li><a href="#">Juventus</a></li>
+                            <li><a href="#">Atalanta</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Bundesliga</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Bayern</a></li>
+                            <li><a href="#">Dortmund</a></li>
+                            <li><a href="#">Leverkusen</a></li>
+                            <li><a href="#">RB Leipzig</a></li>
+                            <li><a href="#">Friburgo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Ligue 1</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">PSG</a></li>
+                            <li><a href="#">Marsella</a></li>
+                            <li><a href="#">Niza</a></li>
+                            <li><a href="#">Rennes</a></li>
+                            <li><a href="#">Racing de Estrasburgo</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Kits</a></li>
+                    <li><a href="#">Ranking</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Liverpool</a></li>
+                            <li><a href="#">Bayern</a></li>
+                            <li><a href="#">Manchester City</a></li>
+                            <li><a href="#">Real Madrid</a></li>
+                            <li><a href="#">Chelsea</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Mas</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Jugadores</a>
+                        <ul class="ul-premier">
+                            <li><a href="#">Lionel Messi</a></li>
+                            <li><a href="#">Robert Lewandowski</a></li>
+                            <li><a href="#">Cristiano Ronaldo</a></li>
+                            <li><a href="#">Mohamed Salah</a></li>
+                            <li><a href="#">Kylian Mbappe</a></li>
+                        </ul>
+                    </li>
+                </nav>
+            </div>
+        </nav>  
+        {{mensaje}}
+        <div class="banner-img">
+            <img  src="{% static 'app/img/madrid.jpg' %}" alt="">
+        </div>
+
+        <dialog class="modal">
+            <div>
+                <h1>REGISTRARSE</h1>
+                <p>¿Ya eres usuario? <a href="#">INICIAR SESIÓN</a></p>
+                <form method="post" class="form-register">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn-register" type="submit" id="submit">Crea Una Cuenta</button>
+                    <!-- <button class="btn-register" id="cancel">Salir</button>  -->
+                </form>
+            </div>
+        </dialog>
+    </header>
+
+    <script>
+        const dialog = document.querySelector('dialog')
+        const cancel = document.querySelector('#cancel')
+        const show = document.querySelector('#show')
+
+        show.addEventListener('click', ()=> dialog.showModal())
+        cancel.addEventListener('click', ()=> dialog.close())
+    </script>
+    
+{% endblock %}
